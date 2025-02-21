@@ -23,10 +23,11 @@ jobs:
         with:
           serverHostname: '3.27.195.220:8080'
           apiKey: ${{ secrets.DEPENDENCYTRACK_APIKEY }}
-          projectName: 'devsecops'
+          projectName: 'devsecops2'
           projectVersion: 'main'
           bomFilename: "bom.json"
           autoCreate: true
+          protocol: https
 
       # - name: Upload SBOM to Dependency-Track
       #   uses: DependencyTrack/github-action@1.1.0
