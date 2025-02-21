@@ -15,8 +15,8 @@ jobs:
 
       - name: Generate SBOM with CycloneDX
         run: |
-          npm install -g @cyclonedx/cyclonedx-npm
-          cyclonedx-npm --output-file /sbom/sbom.json
+          pip install cyclonedx-bom
+          cyclonedx-py venv >> bom.json
 
       - name: Upload SBOM to Dependency-Track
         uses: DependencyTrack/gh-upload-sbom@v3
@@ -25,7 +25,7 @@ jobs:
           apiKey: ${{ secrets.DEPENDENCYTRACK_APIKEY }}
           projectName: 'devsecops'
           projectVersion: 'main'
-          bomFilename: "/sbom/sbom.json"
+          bomFilename: "bom.json"
           autoCreate: true
 
       # - name: Upload SBOM to Dependency-Track
