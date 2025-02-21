@@ -21,13 +21,13 @@ jobs:
       - name: Upload SBOM to Dependency-Track
         uses: DependencyTrack/gh-upload-sbom@v3
         with:
-          serverHostname: '3.27.195.220'
+          serverHostname: 'ec2-3-27-195-220.ap-southeast-2.compute.amazonaws.com'
           apiKey: ${{ secrets.DEPENDENCYTRACK_APIKEY }}
           projectName: 'devsecops2'
           projectVersion: 'main'
           bomFilename: "bom.json"
           autoCreate: true
-          protocol: https
+          protocol: http
           port : 8080
 
       # - name: Upload SBOM to Dependency-Track
