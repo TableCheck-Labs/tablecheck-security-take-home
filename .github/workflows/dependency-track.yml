@@ -1,39 +1,39 @@
-name: Dependency-Track Scan
+# name: Dependency-Track Scan
 
-on:
-  push:
-    branches:
-      - dev
-  pull_request:
+# on:
+#   push:
+#     branches:
+#       - dev
+#   pull_request:
 
-jobs:
-  dependency-track:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+# jobs:
+#   dependency-track:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout Code
+#         uses: actions/checkout@v4
 
-      - name: Generate SBOM with CycloneDX
-        run: |
-          pip install cyclonedx-bom
-          cyclonedx-py venv >> bom.json
+#       - name: Generate SBOM with CycloneDX
+#         run: |
+#           pip install cyclonedx-bom
+#           cyclonedx-py venv >> bom.json
 
-      - name: Upload SBOM to Dependency-Track
-        uses: DependencyTrack/gh-upload-sbom@v3
-        with:
-          serverHostname: 'ec2-3-27-195-220.ap-southeast-2.compute.amazonaws.com'
-          apiKey: ${{ secrets.DEPENDENCYTRACK_APIKEY }}
-          projectName: 'devsecops2'
-          projectVersion: 'main'
-          bomFilename: "bom.json"
-          autoCreate: true
-          protocol: http
-          port : 8080
+#       - name: Upload SBOM to Dependency-Track
+#         uses: DependencyTrack/gh-upload-sbom@v3
+#         with:
+#           serverHostname: 'ec2-3-27-195-220.ap-southeast-2.compute.amazonaws.com'
+#           apiKey: ${{ secrets.DEPENDENCYTRACK_APIKEY }}
+#           projectName: 'devsecops2'
+#           projectVersion: 'main'
+#           bomFilename: "bom.json"
+#           autoCreate: true
+#           protocol: http
+#           port : 8080
 
-      # - name: Upload SBOM to Dependency-Track
-      #   uses: DependencyTrack/github-action@1.1.0
-      #   with:
-      #     apiKey: ${{ secrets.DTRACK_API_KEY }}
-      #     host: "https://your-dependency-track-instance.com"
-      #     project: "your-project-uuid"
-      #     bom: "bom.json"
+#       # - name: Upload SBOM to Dependency-Track
+#       #   uses: DependencyTrack/github-action@1.1.0
+#       #   with:
+#       #     apiKey: ${{ secrets.DTRACK_API_KEY }}
+#       #     host: "https://your-dependency-track-instance.com"
+#       #     project: "your-project-uuid"
+#       #     bom: "bom.json"
