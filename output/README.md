@@ -2,4 +2,4 @@
 
 Hi! Uploading my assessement output here. 
 
-![Security Assessment Report ableCheck](./SecurityAssessmenReport.pdf)
+![Security Assessment Report ableCheck](./SecurityAssessmentReport.pdf)
