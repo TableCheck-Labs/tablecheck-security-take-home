@@ -16,16 +16,16 @@ jobs:
       - name: Generate SBOM with CycloneDX
         run: |
           pip install cyclonedx-bom
-          cyclonedx-py venv >> bom.json
+          cyclonedx-py environment --outfile my-sbom.xml --schema-version 1.6 --output-format XML
 
       - name: Upload SBOM to Dependency-Track
         uses: DependencyTrack/gh-upload-sbom@v3
         with:
-          serverHostname: 'ec2-3-27-195-220.ap-southeast-2.compute.amazonaws.com'
+          serverHostname: ' ${{ secrets.DTRACK_SERVER_HOSTNAME }}'
           apiKey: ${{ secrets.DEPENDENCYTRACK_APIKEY }}
           projectName: 'devsecops2'
           projectVersion: 'main'
-          bomFilename: "bom.json"
+          bomFilename: "my-sbom.xml"
           autoCreate: true
           protocol: http
           port : 8080
