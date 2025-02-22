@@ -1,5 +1,7 @@
-## Assessment Output
+## Project Output for TableCheck
 
-Hi! Uploading my assessement output here. 
+Hi, submitting my final output for the review.
 
-![Security Assessment Report ableCheck](./SecurityAssessmentReport.pdf)
+The assessment report is located in [Security Assessment Report TableCheck](./SecurityAssessmentReport.pdf).
+
+Thank you!
