@@ -16,7 +16,7 @@
 #       - name: Generate SBOM with CycloneDX
 #         run: |
 #           pip install cyclonedx-bom
-#           cyclonedx-py environment --outfile my-sbom.xml --schema-version 1.6 --output-format XML
+#           cyclonedx-py environment --outfile ./scripts/configs/app-sbom.xml --schema-version 1.6 --output-format XML
 
 #       - name: Upload SBOM to Dependency-Track
 #         uses: DependencyTrack/gh-upload-sbom@v3
